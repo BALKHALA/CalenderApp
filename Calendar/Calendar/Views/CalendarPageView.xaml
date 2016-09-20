@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<calendar:BaseView x:Class="Calendar.CalendarPageView"
+                   xmlns="http://xamarin.com/schemas/2014/forms"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                   xmlns:calendar="clr-namespace:Calendar;assembly=Calendar">
+    <calendar:BaseView.PageContent>
+        <StackLayout Orientation="Vertical" Spacing="0">
+            <StackLayout BackgroundColor="#2196F3" Orientation="Horizontal">
+                <Image Margin="5"
+                       Aspect="AspectFit"
+                       HeightRequest="32"
+                       HorizontalOptions="StartAndExpand"
+                       Source="add"
+                       WidthRequest="32">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnAddNewTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label FontSize="22"
+                       HorizontalOptions="FillAndExpand"
+                       Text="Calendar"
+                       TextColor="White"
+                       VerticalTextAlignment="Center" />
+                <Image Margin="5"
+                       Aspect="AspectFit"
+                       HeightRequest="32"
+                       HorizontalOptions="End"
+                       Source="search"
+                       WidthRequest="32">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnSearchButtonTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <BoxView BackgroundColor="Gray" HeightRequest="1" />
+            <calendar:CalendarView HorizontalOptions="Fill"
+                                   MaxDate="01/01/2050"
+                                   MinDate="01/01/1970"
+                                   NavigationArrowsColor="Gray"
+                                   ShowNavigationArrows="True" />
+            <ListView x:Name="lstView" RowHeight="60">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <calendar:EventsViewCell BindingContext="{Binding}" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </calendar:BaseView.PageContent>
+</calendar:BaseView>

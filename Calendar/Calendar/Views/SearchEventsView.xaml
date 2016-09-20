@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<calendar:BaseView x:Class="Calendar.SearchEventsView"
+                   xmlns="http://xamarin.com/schemas/2014/forms"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                   xmlns:calendar="clr-namespace:Calendar;assembly=Calendar">
+    <calendar:BaseView.PageContent>
+        <StackLayout Orientation="Vertical" Spacing="0">
+            <StackLayout BackgroundColor="#2196F3"
+                         HeightRequest="56"
+                         Orientation="Horizontal">
+                <Image Margin="5"
+                       Aspect="AspectFit"
+                       HeightRequest="32"
+                       HorizontalOptions="Start"
+                       Source="back"
+                       WidthRequest="32">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnBackButtonTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label FontSize="22"
+                       HorizontalOptions="FillAndExpand"
+                       Text="Search Events"
+                       TextColor="White"
+                       VerticalTextAlignment="Center" />
+            </StackLayout>
+            <StackLayout BackgroundColor="Gray"
+                         Orientation="Horizontal"
+                         Spacing="0">
+                <Entry Margin="5"
+                       HorizontalOptions="FillAndExpand"
+                       Placeholder="Enter you search here..."
+                       PlaceholderColor="White" />
+                <Image Margin="5"
+                       Aspect="AspectFit"
+                       HorizontalOptions="End"
+                       Source="add">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnSearchButtonTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <ListView x:Name="lstView"
+                      IsVisible="False"
+                      RowHeight="60"
+                      VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <calendar:SearchEventsViewCell BindingContext="{Binding}" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </calendar:BaseView.PageContent>
+</calendar:BaseView>

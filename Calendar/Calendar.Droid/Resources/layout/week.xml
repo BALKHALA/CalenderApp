@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Calendar.Droid.CalendarRowView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <Calendar.Droid.CalendarCellView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/CalendarCell.CalendarDate" />
+    <Calendar.Droid.CalendarCellView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/CalendarCell.CalendarDate" />
+    <Calendar.Droid.CalendarCellView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/CalendarCell.CalendarDate" />
+    <Calendar.Droid.CalendarCellView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/CalendarCell.CalendarDate" />
+    <Calendar.Droid.CalendarCellView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/CalendarCell.CalendarDate" />
+    <Calendar.Droid.CalendarCellView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/CalendarCell.CalendarDate" />
+    <Calendar.Droid.CalendarCellView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/CalendarCell.CalendarDate" />
+</Calendar.Droid.CalendarRowView>

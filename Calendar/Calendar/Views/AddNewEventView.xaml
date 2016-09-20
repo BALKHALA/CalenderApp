@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<calendar:BaseView x:Class="Calendar.AddNewEventView"
+                   xmlns="http://xamarin.com/schemas/2014/forms"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                   xmlns:calendar="clr-namespace:Calendar;assembly=Calendar">
+    <calendar:BaseView.PageContent>
+        <StackLayout Orientation="Vertical" Spacing="0">
+            <StackLayout BackgroundColor="#2196F3"
+                         HeightRequest="56"
+                         Orientation="Horizontal">
+                <Image Margin="5"
+                       Aspect="AspectFit"
+                       HeightRequest="32"
+                       HorizontalOptions="Start"
+                       Source="back"
+                       WidthRequest="32">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnBackButtonTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label FontSize="22"
+                       HorizontalOptions="FillAndExpand"
+                       Text="Add New Event"
+                       TextColor="White"
+                       VerticalTextAlignment="Center" />
+            </StackLayout>
+            <StackLayout Margin="10" Orientation="Vertical">
+                <Frame BackgroundColor="White" Padding="3">
+                    <Entry Margin="0"
+                           BackgroundColor="White"
+                           HorizontalOptions="FillAndExpand"
+                           Placeholder="Enter Event Title"
+                           PlaceholderColor="Gray" />
+                </Frame>
+               <Frame BackgroundColor="White" Padding="3">
+                    <Entry Margin="0"
+                           BackgroundColor="White"
+                           HorizontalOptions="FillAndExpand"
+                           Placeholder="Enter Event Date"
+                           PlaceholderColor="Gray" />
+                </Frame>
+               <Frame BackgroundColor="White" Padding="3">
+                    <Editor  Margin="0"
+                           BackgroundColor="White"
+                           HorizontalOptions="FillAndExpand"
+                          />
+                </Frame>
+                <Button Margin="10"
+                        BackgroundColor="Green"
+                        Text="Add Event" />
+            </StackLayout>
+        </StackLayout>
+    </calendar:BaseView.PageContent>
+</calendar:BaseView>
