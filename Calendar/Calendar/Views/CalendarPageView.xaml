@@ -33,12 +33,14 @@
                 </Image>
             </StackLayout>
             <BoxView BackgroundColor="Gray" HeightRequest="1" />
-            <calendar:CalendarView HorizontalOptions="Fill"
+            <calendar:CalendarView DateSelected="OnDateSelected"
+                                   HorizontalOptions="Fill"
                                    MaxDate="01/01/2050"
                                    MinDate="01/01/1970"
                                    NavigationArrowsColor="Gray"
                                    ShowNavigationArrows="True" />
             <ListView x:Name="lstView" RowHeight="60">
+                <ListViewCachingStrategy>RecycleElement</ListViewCachingStrategy>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

@@ -27,7 +27,8 @@
             <StackLayout BackgroundColor="Gray"
                          Orientation="Horizontal"
                          Spacing="0">
-                <Entry Margin="5"
+                <Entry x:Name="searchEntry"
+                       Margin="5"
                        HorizontalOptions="FillAndExpand"
                        Placeholder="Enter you search here..."
                        PlaceholderColor="White" />
@@ -44,6 +45,7 @@
                       IsVisible="False"
                       RowHeight="60"
                       VerticalOptions="FillAndExpand">
+                <ListViewCachingStrategy>RecycleElement</ListViewCachingStrategy>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

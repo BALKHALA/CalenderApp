@@ -1,31 +1,16 @@
 ﻿using System;
-using System.Collections.ObjectModel;
-using Calendar.ViewModel;
-using Xamarin.Forms;
 
 namespace Calendar
 {
-    public partial class CalendarPageView : BaseView
+    public partial class CalendarPageView : BaseView,IDeleteEvent
     {
-        public ObservableCollection<EventsViewModel> eventslisting { get; set; }
+        EventsDb eventsDb;
 
         public CalendarPageView()
         {
-            ShowNavigationBar(false);
-
             InitializeComponent();
-
-            eventslisting = new ObservableCollection<EventsViewModel>();
-            eventslisting.Add(new EventsViewModel {Name = "Pay bills online", RowColor = Color.FromHex("#f44336"), Image = "delete"});
-            eventslisting.Add(new EventsViewModel {Name = "Meeting with John", RowColor = Color.FromHex("#2196F3"), Image = "delete" });
-            eventslisting.Add(new EventsViewModel {Name = "Book vacation", RowColor = Color.FromHex("#f44336"), Image = "delete" });
-            eventslisting.Add(new EventsViewModel {Name = "Book vacation", RowColor = Color.FromHex("#2196F3"), Image = "delete" });
-            eventslisting.Add(new EventsViewModel {Name = "Book vacation", RowColor = Color.FromHex("#f44336"), Image = "delete" });
-            eventslisting.Add(new EventsViewModel {Name = "Book vacation", RowColor = Color.FromHex("#2196F3"), Image = "delete" });
-            eventslisting.Add(new EventsViewModel {Name = "Book vacation", RowColor = Color.FromHex("#f44336"), Image = "delete" });
-            eventslisting.Add(new EventsViewModel {Name = "Book vacation", RowColor = Color.FromHex("#2196F3"), Image = "delete" });
-            eventslisting.Add(new EventsViewModel {Name = "Book vacation", RowColor = Color.FromHex("#f44336"), Image = "delete" });
-            lstView.ItemsSource = eventslisting;
+            eventsDb = new EventsDb();
+            EventsViewCell.delete = this;
         }
 
         private void OnSearchButtonTapped(object sender, EventArgs e)
@@ -36,6 +21,22 @@ namespace Calendar
         private void OnAddNewTapped(object sender, EventArgs e)
         {
             Push(new AddNewEventView());
+        }
+
+        public async void DeleteEvent(int Id)
+        {
+            var answer = await DisplayAlert("Delete Event", "Are you sure you want to delete event?", "Yes", "No");
+
+            if (answer)
+            {
+                eventsDb.Delete(Id);
+                lstView.ItemsSource = eventsDb.GetAll();
+            }
+        }
+
+        private void OnDateSelected(object sender, DateTime e)
+        {
+            lstView.ItemsSource = eventsDb.GetEventsByDate(e.Date.ToString("d"));
         }
     }
 }

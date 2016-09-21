@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Xamarin.Forms;
 
 namespace Calendar.Droid
 {
@@ -12,8 +13,8 @@ namespace Calendar.Droid
         {
             base.OnCreate(bundle);
 
-            global::Xamarin.Forms.Forms.Init(this, bundle);
-            global::Xamarin.Forms.Forms.SetTitleBarVisibility(Xamarin.Forms.AndroidTitleBarVisibility.Never);
+            Forms.Init(this, bundle);
+            Forms.SetTitleBarVisibility(AndroidTitleBarVisibility.Never);
             LoadApplication(new App());
         }
     }
