@@ -25,8 +25,7 @@ namespace Calendar
 
             calendarEvents.Id = eventsDb.GetAll().Count() == rowCount ? rowCount : eventsDb.GetAll().Count() + 1;
             calendarEvents.Title = eventTitle.Text.Trim();
-            calendarEvents.Description = description.Text.Trim();
-            calendarEvents.Date = eventDate.Text.Trim();
+            calendarEvents.Date = "20/09/2016";
             calendarEvents.RowColor = "#2196F3";
 
             eventsDb.Insert(calendarEvents);

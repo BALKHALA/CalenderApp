@@ -39,7 +39,9 @@
                                    MinDate="01/01/1970"
                                    NavigationArrowsColor="Gray"
                                    ShowNavigationArrows="True" />
-            <ListView x:Name="lstView" RowHeight="60">
+            <ListView x:Name="lstView"
+                      ItemTapped="OnEventRowTapped"
+                      RowHeight="60">
                 <ListViewCachingStrategy>RecycleElement</ListViewCachingStrategy>
                 <ListView.ItemTemplate>
                     <DataTemplate>

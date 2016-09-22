@@ -23,22 +23,39 @@ namespace Calendar
 
         public IEnumerable<CalendarEvents> GetEventsByDate(string date)
         {
-            return _connection.Table<CalendarEvents>().Where(a => a.Date.Equals(date));
+            return AddColorToRow(_connection.Table<CalendarEvents>().Where(a => a.Date.Equals(date)).ToList());
         }
 
         public IEnumerable<CalendarEvents> GetSearchData(string query)
         {
-            return _connection.Table<CalendarEvents>().Where(a => a.Title.Contains(query));
+            return AddColorToRow(_connection.Table<CalendarEvents>().Where(a => a.Title.Contains(query)).ToList());
         }
 
         public IEnumerable<CalendarEvents> GetAll()
         {
-            return (from i in _connection.Table<CalendarEvents>() select i);
+            return AddColorToRow((from i in _connection.Table<CalendarEvents>() select i).ToList());
+        }
+
+        private List<CalendarEvents> AddColorToRow(List<CalendarEvents> calendarEventsList)
+        {
+            for (int i = 0; i < calendarEventsList.Count; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    calendarEventsList[i].RowColor = "#f44336";
+                }
+            }
+            return calendarEventsList;
         }
 
         public int Insert(CalendarEvents entity)
         {
             return _connection.Insert(entity);
+        }
+
+        public int Update(CalendarEvents entity)
+        {
+            return _connection.Update(entity);
         }
 
         public EventsDb()

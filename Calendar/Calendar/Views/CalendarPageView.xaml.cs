@@ -1,4 +1,5 @@
 ﻿using System;
+using Xamarin.Forms;
 
 namespace Calendar
 {
@@ -29,14 +30,20 @@ namespace Calendar
 
             if (answer)
             {
+                string date = eventsDb.Get(Id).Date;
                 eventsDb.Delete(Id);
-                lstView.ItemsSource = eventsDb.GetAll();
+                lstView.ItemsSource = eventsDb.GetEventsByDate(date);
             }
         }
 
         private void OnDateSelected(object sender, DateTime e)
         {
             lstView.ItemsSource = eventsDb.GetEventsByDate(e.Date.ToString("d"));
+        }
+
+        private async void OnEventRowTapped(object sender, ItemTappedEventArgs e)
+        {
+            await AwaitedPush(new EventDetailsView((CalendarEvents)e.Item));
         }
     }
 }

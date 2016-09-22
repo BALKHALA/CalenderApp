@@ -1,0 +1,19 @@
+﻿<Properties StartupConfiguration="{C81730C5-4B0B-438D-AE14-2EE8624FD052}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Calendar/Calendar.Droid/Properties/AndroidManifest.xml">
+    <Files>
+      <File FileName="Calendar/Calendar.Droid/Resources/values-v21/style.xml" Line="10" Column="13" />
+      <File FileName="Calendar/Calendar/Views/CalendarPageView.xaml.cs" Line="35" Column="14" />
+      <File FileName="Calendar/Calendar/Controls/CalendarView.cs" Line="1" Column="1" />
+      <File FileName="Calendar/Calendar.Droid/Properties/AndroidManifest.xml" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Calendar.Droid PreferredExecutionTarget="Android.192.168.56.101:5555" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <DisabledProjects>
+    <String>Calendar/Calendar.iOS/Calendar.iOS.csproj</String>
+  </DisabledProjects>
+</Properties>

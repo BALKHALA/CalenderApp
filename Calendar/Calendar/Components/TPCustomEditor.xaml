@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:local="clr-namespace:Calendar;assembly=Calendar"
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Calendar.TPCustomEditor" Spacing="0">
+  <StackLayout Spacing="1" x:Name="root">
+    <BoxView HeightRequest="20"></BoxView>
+    <local:TPLabel Text="{Binding Placeholder}" FontSize="{Binding PlaceHolderTextSize}" TextColor="{Binding LabelColor}" />
+    <ContentView Padding="-5,0,0,0">
+      <local:TPEditor x:Name="editor" Placeholder="{Binding Placeholder}" Keyboard="{Binding Keyboard}" IsEnabled="{Binding IsEnable}"  Text="{Binding Text}" Unfocused="OnFieldUnfocused" Focused="OnFieldFocused" ></local:TPEditor>
+    </ContentView>
+    <BoxView HeightRequest="1" BackgroundColor="{Binding UnderlineErrorMessage}"></BoxView>
+    <local:TPLabel Text="{Binding LabelText}" FontSize="10" TextColor="#ed1c24" ></local:TPLabel>
+  </StackLayout>
+</StackLayout>

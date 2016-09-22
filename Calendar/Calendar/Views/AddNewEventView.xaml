@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<calendar:BaseView x:Class="Calendar.AddNewEventView"
-                   xmlns="http://xamarin.com/schemas/2014/forms"
-                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                   xmlns:calendar="clr-namespace:Calendar;assembly=Calendar">
-    <calendar:BaseView.PageContent>
+<local:BaseView x:Class="Calendar.AddNewEventView"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:local="clr-namespace:Calendar;assembly=Calendar">
+    <local:BaseView.PageContent>
         <StackLayout Orientation="Vertical" Spacing="0">
             <StackLayout BackgroundColor="#2196F3"
                          HeightRequest="56"
@@ -25,26 +25,29 @@
                        VerticalTextAlignment="Center" />
             </StackLayout>
             <StackLayout Margin="10" Orientation="Vertical">
+
+                <local:TPCustomEntry x:Name="eventTitle"
+                                     Margin="0"
+                                     
+                                     HorizontalOptions="FillAndExpand"
+                                     Placeholder="Enter Event Title"
+                                     PlaceholderColor="Gray" />
+
+
+                <local:TPCustomEntry x:Name="eventDate"
+                                     Margin="0"
+                                    
+                                     HorizontalOptions="FillAndExpand"
+                                     Placeholder="Enter Event Date (mm/dd/yyyy)"
+                                     PlaceholderColor="Gray" />
+
                 <Frame BackgroundColor="White" Padding="3">
-                    <Entry Margin="0"
-                           BackgroundColor="White"
-                           x:Name="eventTitle"
-                           HorizontalOptions="FillAndExpand"
-                           Placeholder="Enter Event Title"
-                           PlaceholderColor="Gray" />
-                </Frame>
-               <Frame BackgroundColor="White" Padding="3">
-                    <Entry Margin="0"
-                           BackgroundColor="White"
-                           HorizontalOptions="FillAndExpand"
-                           Placeholder="Enter Event Date"
-                           PlaceholderColor="Gray" />
-                </Frame>
-               <Frame BackgroundColor="White" Padding="3">
-                    <Editor  Margin="0"
-                           BackgroundColor="White"
-                           HorizontalOptions="FillAndExpand"
-                          />
+                    <local:TPCustomEditor x:Name="description"
+                                          Margin="0"
+                                          BackgroundColor="White"
+                                          HorizontalOptions="FillAndExpand"
+                                          Placeholder="Enter Event Detail"
+                                          PlaceholderColor="Gray" />
                 </Frame>
                 <Button Margin="10"
                         BackgroundColor="Green"
@@ -52,5 +55,5 @@
                         Text="Add Event" />
             </StackLayout>
         </StackLayout>
-    </calendar:BaseView.PageContent>
-</calendar:BaseView>
+    </local:BaseView.PageContent>
+</local:BaseView>

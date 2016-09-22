@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:local="clr-namespace:Calendar;assembly=Calendar"
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Calendar.TPCustomEntry" Spacing="0">
+
+  <StackLayout Spacing="1" x:Name="root">
+    <BoxView HeightRequest="20"></BoxView>
+
+    <local:TPLabel Text="{Binding Placeholder}" FontSize="{Binding PlaceHolderTextSize}" TextColor="{Binding LabelColor}" />
+
+    <Grid RowSpacing="0">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="Auto" />
+      </Grid.ColumnDefinitions>
+
+      <ContentView x:Name="EntryContiner">
+        <local:TPEntry x:Name="Feild" FontSize="{Binding FontSize}" Placeholder="{Binding Placeholder}" Keyboard="{Binding Keyboard}" IsEnabled="{Binding IsEnable}"  PlaceholderColor="{Binding PlaceholderColor}" Text="{Binding Text}" HeightRequest="42" IsPassword="{Binding IsPassword}" Unfocused="OnFieldUnfocused" Focused="OnFieldFocused"></local:TPEntry>
+      </ContentView>
+
+      <Image Source="{Binding Icon}" x:Name="IconImg" HorizontalOptions="{Binding IconAlignment}">
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer Command="{Binding ClearFieldValue}"/>
+        </Image.GestureRecognizers>
+      </Image>
+    </Grid>
+    <BoxView HeightRequest="1" BackgroundColor="{Binding UnderlineErrorMessage}"></BoxView>
+
+    <local:TPLabel Text="{Binding LabelText}" FontSize="10" TextColor="#ed1c24" ></local:TPLabel>
+  </StackLayout>
+</StackLayout>

@@ -25,7 +25,10 @@ namespace Calendar
 
         private void SearchData()
         {
-            lstView.ItemsSource = eventsDb.GetSearchData(searchEntry.Text.Trim());
+            if (searchEntry.Text != null)
+            {
+                lstView.ItemsSource = eventsDb.GetSearchData(searchEntry.Text.Trim());
+            }
         }
     }
 }
